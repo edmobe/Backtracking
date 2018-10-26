@@ -2,7 +2,11 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * A class that uses backtracking to solve a NxN labyrinth and shows the path taken by the
+ * algorithm
+ * @author Eduardo Moya (edmobe)
+ */
 public class Backtracking {
 	private int[][] labyrinth;
 	private int[][] solution;
@@ -74,10 +78,10 @@ public class Backtracking {
      * @param array
      */
     public void shuffleArray(int[] array) {
-    	Random rnd = ThreadLocalRandom.current();
+    	Random random = ThreadLocalRandom.current();
         for (int i = array.length - 1; i > 0; i--)
         {
-          int index = rnd.nextInt(i + 1);
+          int index = random.nextInt(i + 1);
           // Simple swap
           int a = array[index];
           array[index] = array[i];
@@ -237,6 +241,10 @@ public class Backtracking {
 		solutionExists = true;
 		obstacles = 2;
 	}
+	/**
+	 * Main method for testing
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Backtracking b = new Backtracking(8, 2, 500); // (size, obstacleIncrease, timePerIteration)
 		b.run();
